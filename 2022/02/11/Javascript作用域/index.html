@@ -20,28 +20,32 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="小肥杨">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="作用域的简述：在一段程序代码中用的名字（变量）并不是总是有效的和可用的，而通过限定这个名字的作用范围就是作用域。在JS中作用域又分为：全局作用域 ，局部作用域。 123456789101112&lt;script&gt;&#x2F;&#x2F;整个&lt;script&gt;标签就是全局作用域 var num &#x3D; 1;&#x2F;&#x2F;这个num是全局有效的 console.log(num);&#x2F;&#x2F;1 function fn() &amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript作用域">
+<meta property="og:url" content="http://example.com/2022/02/11/Javascript%E4%BD%9C%E7%94%A8%E5%9F%9F/index.html">
 <meta property="og:site_name" content="小肥杨">
+<meta property="og:description" content="作用域的简述：在一段程序代码中用的名字（变量）并不是总是有效的和可用的，而通过限定这个名字的作用范围就是作用域。在JS中作用域又分为：全局作用域 ，局部作用域。 123456789101112&lt;script&gt;&#x2F;&#x2F;整个&lt;script&gt;标签就是全局作用域 var num &#x3D; 1;&#x2F;&#x2F;这个num是全局有效的 console.log(num);&#x2F;&#x2F;1 function fn() &amp;">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-02-11T15:49:36.000Z">
+<meta property="article:modified_time" content="2022-02-11T16:02:32.532Z">
 <meta property="article:author" content="yang">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2022/02/11/Javascript%E4%BD%9C%E7%94%A8%E5%9F%9F/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>小肥杨</title>
+  <title>Javascript作用域 | 小肥杨</title>
   
 
 
@@ -139,9 +143,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
@@ -157,10 +162,9 @@
       <meta itemprop="name" content="小肥杨">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/02/11/Javascript%E4%BD%9C%E7%94%A8%E5%9F%9F/" class="post-title-link" itemprop="url">Javascript作用域</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          Javascript作用域
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -190,7 +194,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>作用域的简述：在一段程序代码中用的名字（变量）并不是总是有效的和可用的，而通过限定这个名字的作用范围就是作用域。在JS中作用域又分为：全局作用域 ，局部作用域。</p>
+        <p>作用域的简述：在一段程序代码中用的名字（变量）并不是总是有效的和可用的，而通过限定这个名字的作用范围就是作用域。在JS中作用域又分为：全局作用域 ，局部作用域。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">//整个&lt;script&gt;标签就是全局作用域</span><br><span class="line"> var num = 1;//这个num是全局有效的</span><br><span class="line"> console.log(num);//1</span><br><span class="line"> function fn() &#123;</span><br><span class="line"> var num = 10;//（在函数里面的就是局部作用域）这个num是局部作用域，虽然变量名一样了，在不同作用域下是不会影响的，</span><br><span class="line"> console.log(num); //10</span><br><span class="line">&#125; </span><br><span class="line"> fn(); </span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
@@ -206,112 +210,30 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function fn1() &#123;</span><br><span class="line">var num2 = 4;</span><br><span class="line">function fn2() &#123;</span><br><span class="line">var num1 = 5;</span><br><span class="line">var num2 = 123;</span><br><span class="line">function fn3() &#123;</span><br><span class="line">var num1 = 12;</span><br><span class="line">console.log (num1,num2);//12 123</span><br><span class="line">&#125;</span><br><span class="line">fn3();</span><br><span class="line">&#125;</span><br><span class="line">fn2();</span><br><span class="line">&#125;</span><br><span class="line">fn1();</span><br></pre></td></tr></table></figure>
 
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/10/JS%E4%B8%ADarguments%E7%9A%84%E4%BD%BF%E7%94%A8/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yang">
-      <meta itemprop="description" content="">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小肥杨">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/02/10/JS%E4%B8%ADarguments%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">JS中arguments的使用</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2022-02-10 20:56:09 / Modified: 21:17:54" itemprop="dateCreated datePublished" datetime="2022-02-10T20:56:09+08:00">2022-02-10</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在不知道有多少参数的情况下，这个时候就可以用arguments来获取，JS中arguments是当前函数的内置对象。函数中的一个arguements对象，而arguements对象中存储了传送过来的所有实参。</p>
-<p>案例：</p>
-<pre><code>&lt;script&gt;
-function arr() &#123;
- console.log(arguments);//arguments中存储了传送过来的arr(1,2,3,4)所有实参
- &#125;
- arr(1,2,3,4);
-&lt;/script&gt;
-</code></pre>
-<p>在存储的过程中arguments变成了一个数组。具有[ ]。通过上面的截图可以看出它具有数组的length 和索引。（以下可以通过代码验证）其实arguments所展示的是一个伪数组，可以进行遍历。所以我们要注意是伪数组不具有数组的pop,push等方法。</p>
-<pre><code> &lt;script&gt;
- function arr() &#123;
- console.log(arguments);
- console.log(arguments.length);//4
- console.log(arguments[2]);//3
- &#125;
- arr(1,2,3,4)
- &lt;/script&gt;
-</code></pre>
-<p>arguments对象遍历：</p>
-<pre><code>&lt;script&gt;
-function arr() &#123;
- //console.log(arguments);
- //console.log(arguments.length);
- //console.log(arguments[2]);
- for (i = 0; i &lt; arguments.length; i++) &#123;
-  console.log(arguments[i]);//1，2，3，4
- &#125;
- &#125;
- arr(1,2,3,4);
- &lt;script&gt;
-</code></pre>
-<p> 总结：运用了arguments 不管arr()中存储了多少个值都会接受过去。就可以不用arr()中的形参。需要注意的是只有函数才有arguments对象，就是声明了函数，都会有，相当于内置功能。<br>————————————————</p>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/02/10/JS%E4%B8%ADarguments%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="prev" title="JS中arguments的使用">
+      <i class="fa fa-chevron-left"></i> JS中arguments的使用
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 

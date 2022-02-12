@@ -145,6 +145,86 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/12/JavaScript%E7%9A%84%E9%A2%84%E8%A7%A3%E6%9E%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小肥杨">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/02/12/JavaScript%E7%9A%84%E9%A2%84%E8%A7%A3%E6%9E%90/" class="post-title-link" itemprop="url">JavaScript的预解析</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-02-12 22:43:33 / Modified: 22:58:30" itemprop="dateCreated datePublished" datetime="2022-02-12T22:43:33+08:00">2022-02-12</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>JavaScript代码是由浏览器中JS引擎来执行的，js引擎在运行js代码的时候分为两个步骤：预解析和代码执行。(代码的执行是从上往下的)</p>
+<p>1.预解析js引擎会把js里面所有的 var   function 提升到当前作用域的最前面。</p>
+<p>2.预解析分为 变量预解析和函数预解析。也称为变量提升和函数提升。</p>
+<p>（1）变量的预解析就是把代码中的变量声明提升到当前的作用域最前面，注意赋值操作不提升。</p>
+<p>（2）函数的预解析就是把代码中的函数声明提升到当前的作用域最前面，不调用函数。</p>
+<p>预解析案例一 结果是 ？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">var num = 123;</span><br><span class="line">fn1();</span><br><span class="line">function fn1() &#123;</span><br><span class="line">console.log(num);//undefined</span><br><span class="line">var num = 456;</span><br><span class="line">&#125;</span><br><span class="line">//进行预解析相当于进行了如下操作</span><br><span class="line">//var = num;</span><br><span class="line">//function fn1() &#123;</span><br><span class="line">//var = num;</span><br><span class="line">//console.log(num);</span><br><span class="line">//num = 456;</span><br><span class="line">//&#125;</span><br><span class="line">//num = 123;</span><br><span class="line">//fn1();</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>为什么结果是 undefined ? 因为根据作用域链的就近原则，在函数fn1()中，声明变量会提升，而代码的执行是从上往下的，只有一个num ,没有被赋值。因此是undefined。</p>
+<p> 预解析案例二 结果是 ？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">var num = 123;</span><br><span class="line">function fn2() &#123;</span><br><span class="line">console.log(num);//undefined</span><br><span class="line">var num = 456;</span><br><span class="line">console.log(num);//456</span><br><span class="line">&#125;</span><br><span class="line">fn2();</span><br><span class="line">//进行预解析相当于进行如下代码</span><br><span class="line">//var num;</span><br><span class="line">//function fn2() &#123;</span><br><span class="line">//var num;</span><br><span class="line">//console.log(num);</span><br><span class="line">//num = 456;</span><br><span class="line">//console.log(num);</span><br><span class="line">//&#125;</span><br><span class="line">//fn2();</span><br></pre></td></tr></table></figure>
+
+
+
+<p> 预解析案例三 结果是 ？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">fn3();</span><br><span class="line">console.log(c);//123</span><br><span class="line">console.log(b);//123</span><br><span class="line">console.log(a);//报错</span><br><span class="line">function fn3() &#123;</span><br><span class="line">var a = b = c = 123;</span><br><span class="line">console.log(a);//123</span><br><span class="line">console.log(b);//123</span><br><span class="line">console.log(c);//123</span><br><span class="line">&#125;</span><br><span class="line">//进行预解析相当于进行如下代码</span><br><span class="line">//function fn3() &#123;</span><br><span class="line">//var a;</span><br><span class="line">//a = b = c = 123;</span><br><span class="line">//console.log(a);</span><br><span class="line">//console.log(b);</span><br><span class="line">//console.log(c);</span><br><span class="line">//&#125;</span><br><span class="line">//fn3();</span><br><span class="line">//console.log(c);</span><br><span class="line">//console.log(b);</span><br><span class="line">//console.log(a);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p> 注意 var a &#x3D; b &#x3D; c &#x3D; 123; 相当于var a &#x3D; 123; b &#x3D; 123; c &#x3D; 123; （其中b和c是直接赋值 没有var声明 当全局变量。 而集体声明是var a &#x3D; 123， b &#x3D; 123， c &#x3D; 123;</p>
+<p> 为什么打印的最后一个会报错呢？</p>
+<p>因为var &#x3D; a ;是声明在fn3()函数中属于局部变量 ，则打印最后一个报错。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/11/Javascript%E4%BD%9C%E7%94%A8%E5%9F%9F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -377,7 +457,7 @@ function arr() &#123;
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

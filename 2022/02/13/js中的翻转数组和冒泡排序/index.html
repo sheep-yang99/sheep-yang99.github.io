@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="作用域的简述：在一段程序代码中用的名字（变量）并不是总是有效的和可用的，而通过限定这个名字的作用范围就是作用域。在JS中作用域又分为：全局作用域 ，局部作用域。 123456789101112&lt;script&gt;&#x2F;&#x2F;整个&lt;script&gt;标签就是全局作用域 var num &#x3D; 1;&#x2F;&#x2F;这个num是全局有效的 console.log(num);&#x2F;&#x2F;1 function fn() &amp;">
+  <meta name="description" content="翻转数组 请将array &#x3D; [1,2,3,4,5,6] 进行翻转。 123456789101112&lt;script&gt;var arr &#x3D; [1,2,3,4,5,6];function fn1() &amp;#123;var arr1 &#x3D;[];&#x2F;&#x2F;建立一个空的数组for (var i &#x3D; 0; i &lt; arr.length; i++) &amp;#123;arr1[i]&#x3D;arr[arr.l">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript作用域">
-<meta property="og:url" content="http://example.com/2022/02/11/Javascript%E4%BD%9C%E7%94%A8%E5%9F%9F/index.html">
+<meta property="og:title" content="JavaScript中的翻转数组和冒泡排序">
+<meta property="og:url" content="http://example.com/2022/02/13/js%E4%B8%AD%E7%9A%84%E7%BF%BB%E8%BD%AC%E6%95%B0%E7%BB%84%E5%92%8C%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/index.html">
 <meta property="og:site_name" content="小肥杨">
-<meta property="og:description" content="作用域的简述：在一段程序代码中用的名字（变量）并不是总是有效的和可用的，而通过限定这个名字的作用范围就是作用域。在JS中作用域又分为：全局作用域 ，局部作用域。 123456789101112&lt;script&gt;&#x2F;&#x2F;整个&lt;script&gt;标签就是全局作用域 var num &#x3D; 1;&#x2F;&#x2F;这个num是全局有效的 console.log(num);&#x2F;&#x2F;1 function fn() &amp;">
+<meta property="og:description" content="翻转数组 请将array &#x3D; [1,2,3,4,5,6] 进行翻转。 123456789101112&lt;script&gt;var arr &#x3D; [1,2,3,4,5,6];function fn1() &amp;#123;var arr1 &#x3D;[];&#x2F;&#x2F;建立一个空的数组for (var i &#x3D; 0; i &lt; arr.length; i++) &amp;#123;arr1[i]&#x3D;arr[arr.l">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-02-11T15:49:36.000Z">
-<meta property="article:modified_time" content="2022-02-13T15:30:20.548Z">
+<meta property="article:published_time" content="2022-02-13T15:26:14.000Z">
+<meta property="article:modified_time" content="2022-02-13T15:32:47.825Z">
 <meta property="article:author" content="yang">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2022/02/11/Javascript%E4%BD%9C%E7%94%A8%E5%9F%9F/">
+<link rel="canonical" href="http://example.com/2022/02/13/js%E4%B8%AD%E7%9A%84%E7%BF%BB%E8%BD%AC%E6%95%B0%E7%BB%84%E5%92%8C%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>JavaScript作用域 | 小肥杨</title>
+  <title>JavaScript中的翻转数组和冒泡排序 | 小肥杨</title>
   
 
 
@@ -150,7 +150,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/11/Javascript%E4%BD%9C%E7%94%A8%E5%9F%9F/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/13/js%E4%B8%AD%E7%9A%84%E7%BF%BB%E8%BD%AC%E6%95%B0%E7%BB%84%E5%92%8C%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -163,7 +163,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          JavaScript作用域
+          JavaScript中的翻转数组和冒泡排序
         </h1>
 
         <div class="post-meta">
@@ -172,16 +172,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2022-02-11 23:49:36" itemprop="dateCreated datePublished" datetime="2022-02-11T23:49:36+08:00">2022-02-11</time>
+              <time title="Created: 2022-02-13 23:26:14 / Modified: 23:32:47" itemprop="dateCreated datePublished" datetime="2022-02-13T23:26:14+08:00">2022-02-13</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-02-13 23:30:20" itemprop="dateModified" datetime="2022-02-13T23:30:20+08:00">2022-02-13</time>
-              </span>
 
           
 
@@ -194,20 +188,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>作用域的简述：在一段程序代码中用的名字（变量）并不是总是有效的和可用的，而通过限定这个名字的作用范围就是作用域。在JS中作用域又分为：全局作用域 ，局部作用域。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">//整个&lt;script&gt;标签就是全局作用域</span><br><span class="line"> var num = 1;//这个num是全局有效的</span><br><span class="line"> console.log(num);//1</span><br><span class="line"> function fn() &#123;</span><br><span class="line"> var num = 10;//（在函数里面的就是局部作用域）这个num是局部作用域，虽然变量名一样了，在不同作用域下是不会影响的，</span><br><span class="line"> console.log(num); //10</span><br><span class="line">&#125; </span><br><span class="line"> fn(); </span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <p>翻转数组</p>
+<p>请将array &#x3D; [1,2,3,4,5,6] 进行翻转。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">var arr = [1,2,3,4,5,6];</span><br><span class="line">function fn1() &#123;</span><br><span class="line">var arr1 =[];//建立一个空的数组</span><br><span class="line">for (var i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">arr1[i]=arr[arr.length-1-i];//因为是数组的翻转，arr数组的最后一个值，对新数组的第一为，因为数组的索引从0开始，需要减1</span><br><span class="line">&#125;</span><br><span class="line">console.log(arr1);</span><br><span class="line">&#125;</span><br><span class="line">fn1();</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-
-
-
-
-<p>当然根据作用域的不同，变量也不同，就有了全局变量和局部变量。 如上图代码，在全局作用域下声明的变量为全局变量，在函数内部声明的变量为局部变量。另外函数的形参也是一个局部变量。注意：还有一种特殊情况，如果在函数内部是没有声明，直接进行赋值的变量也是全局变量。从执行效率来看，局部变量 &gt; 全局变量。因为局部变量只有当浏览器关闭是才会销毁，比较占内存资源，而局部变量是当这个函数执行完毕时便会自动销毁。</p>
-<p>作用域链简述：通俗的解释就是一个函数要调用这个值，而自己没有，则会向上一级去获取，上一级没有则继续往上，如果都没有的话，则会出现is not defined。</p>
-<p>作用域链案例1：num输出的值是多少？</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">function fn1() &#123;</span><br><span class="line">var num = 12;</span><br><span class="line">function fn2() &#123;</span><br><span class="line">console.log(num);//12</span><br><span class="line">&#125;</span><br><span class="line">fn2();</span><br><span class="line">&#125;</span><br><span class="line">var num = 34;</span><br><span class="line">fn1();</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p> 作用域链案例2：num1，num2输出的值是多少？</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function fn1() &#123;</span><br><span class="line">var num2 = 4;</span><br><span class="line">function fn2() &#123;</span><br><span class="line">var num1 = 5;</span><br><span class="line">var num2 = 123;</span><br><span class="line">function fn3() &#123;</span><br><span class="line">var num1 = 12;</span><br><span class="line">console.log (num1,num2);//12 123</span><br><span class="line">&#125;</span><br><span class="line">fn3();</span><br><span class="line">&#125;</span><br><span class="line">fn2();</span><br><span class="line">&#125;</span><br><span class="line">fn1();</span><br></pre></td></tr></table></figure>
+<p>冒泡排序简述：一种计算机科学领域的较简单的排序算法。 它重复地走访过要排序的元素列,依次比较两个相邻的元素,如果顺序(如从大到小、首字母从Z到A)错误就把他们交换过来。</p>
+<p>冒泡排序案例</p>
+<p>将array &#x3D; [12,45,10,24,16,29] 进行从小到大排序。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">var arr = [12,45,10,24,16,29]</span><br><span class="line">function fn1()&#123;</span><br><span class="line">for (var i = 0; i &lt; arr.length; i++) &#123;//外层for循环控制趟数</span><br><span class="line">for (var j = 0; j &lt; arr.length-i; j++) &#123;//里层for循环控制交换次数</span><br><span class="line">if(arr[j] &gt; arr[j+1])&#123;//将前面一个数和后面数进行比较 </span><br><span class="line">var temp = arr[j]; //如果arr[j]大于arr[j+1] 则两个值进行交换</span><br><span class="line">arr[j] = arr[j+1];</span><br><span class="line">arr[j+1] = temp;</span><br><span class="line">&#125;						</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(arr);</span><br><span class="line">&#125;</span><br><span class="line">fn1();</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -224,13 +212,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/02/10/JS%E4%B8%ADarguments%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="prev" title="JavaScript中arguments的使用">
-      <i class="fa fa-chevron-left"></i> JavaScript中arguments的使用
+    <a href="/2022/02/12/JavaScript%E7%9A%84%E9%A2%84%E8%A7%A3%E6%9E%90/" rel="prev" title="JavaScript的预解析">
+      <i class="fa fa-chevron-left"></i> JavaScript的预解析
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/02/12/JavaScript%E7%9A%84%E9%A2%84%E8%A7%A3%E6%9E%90/" rel="next" title="JavaScript的预解析">
-      JavaScript的预解析 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     

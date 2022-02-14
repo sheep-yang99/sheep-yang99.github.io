@@ -145,6 +145,103 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/14/JavaScript%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小肥杨">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/02/14/JavaScript%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">JavaScript内置对象</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-02-14 22:07:18 / Modified: 22:31:13" itemprop="dateCreated datePublished" datetime="2022-02-14T22:07:18+08:00">2022-02-14</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="一-Math对象"><a href="#一-Math对象" class="headerlink" title="一.Math对象"></a>一.Math对象</h3><p>Math对象用于执行数学计算。Math对象不同的是，它在使用时不需要创建对象，而是直接使用Math来访问属性或方法的。比如Math.PI。 更多方法请查阅MDN Web Docs</p>
+<p>案例 利用Math 实现猜数字小游戏 (1~10之间的整数 并且只有3次机会)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">function getRandom (min,max) &#123;</span><br><span class="line">						return Math.floor(Math.random() * (max-min + 1))+min;</span><br><span class="line">					&#125;//随机生成1~10的整数我们需要用到Math.random()的方法</span><br><span class="line">					var random = getRandom (1,10);</span><br><span class="line">					console.log(random);</span><br><span class="line">					for (var i = 1; i &lt; 4; i++) &#123;//使用for循环控制你猜的次数</span><br><span class="line">					var num = prompt(&#x27;请输入1-10的整数 这是第&#x27;+i+&#x27;次机会(共3次机会)&#x27;)</span><br><span class="line">						if (num &gt; random)&#123;</span><br><span class="line">							alert(&quot;你猜大了&quot;);</span><br><span class="line">		                if(i==3)&#123;alert(&#x27;很遗憾你没有机会了&#x27;)&#125;</span><br><span class="line">						&#125;else if ( num &lt; random) &#123;</span><br><span class="line">							alert(&#x27;你猜小了&#x27;);</span><br><span class="line">		                if(i==3)&#123;alert(&#x27;很遗憾你没有机会了&#x27;)&#125;</span><br><span class="line">						&#125;else&#123;</span><br><span class="line">							alert(&#x27;用了&#x27;+i+&#x27;次猜对了：这个数是&#x27;+random)</span><br><span class="line">							break; //当我们猜对了直接退出整个循环</span><br><span class="line">						&#125;</span><br><span class="line">					&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二-Date对象"><a href="#二-Date对象" class="headerlink" title="二. Date对象"></a>二. Date对象</h3><p>Date对象用来处理日期和时间的。它和Math不同，使用Data对象需要创建（new Date([日期参数]) ）如果不写日期参数的用于获取系统当前的日期和时间。写参数分为两种 日期字符串 格式为 月 日，公元年  时：分 ：秒” 。还有一律是数值 “年， 月， 日，时，分，秒”</p>
+<p>Date对象的常用方法：<br>getDay() 根据本地时间返回Date对象的星期数 注意取值为0<del>6。getMonth() 根据本地时间返回Date对象的月份数 注意取值为0</del>11。更多方法请查阅MDN Web Docs</p>
+<p>案例 倒计时的实现</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">			function countDown(times) &#123;</span><br><span class="line">				var time = +new Date();//根据本地时间返回自1970年1月1日 00：00：00以来的毫秒数</span><br><span class="line">				var gettime = +new Date(times);//根据输入的时间返回自1970年1月1日 00：00：00以来的毫秒数</span><br><span class="line">				var counttimes = (gettime - time) / 1000;//得到输入未来的时间与现在时间的秒数</span><br><span class="line">				var d = parseInt(counttimes/60/60/24);//根据得到的秒数换算成天数</span><br><span class="line">				d = d &lt; 10 ? &#x27;0&#x27; + d : d;//用于显示美观 如果时7 则显示07 也可以用if()...else语句</span><br><span class="line">				var h = parseInt(counttimes/60/60%24);//根据得到的秒数换算成小时数</span><br><span class="line">				h = h &lt; 10 ? &#x27;0&#x27; + h : h;</span><br><span class="line">				var m = parseInt(counttimes/60%60);//根据得到的秒数换算成分钟数</span><br><span class="line">				m = m &lt; 10 ? &#x27;0&#x27; + m : m;</span><br><span class="line">				var s = parseInt(counttimes%60);//根据得到的秒数换算成秒数</span><br><span class="line">				s = s &lt; 10 ? &#x27;0&#x27; + s : s;</span><br><span class="line">				return &#x27;距离2023年1月1日还有 &#x27;+d+&#x27;天 &#x27;+h+&#x27;时 &#x27;+m+&#x27;分 &#x27;+s+&#x27;秒&#x27;;</span><br><span class="line">			&#125;</span><br><span class="line">			var countDowns = countDown(&#x27;2023,1,1 00:00:00&#x27;);</span><br><span class="line">			console.log(countDowns);</span><br></pre></td></tr></table></figure>
+
+<h3 id="三-Array对象"><a href="#三-Array对象" class="headerlink" title="三.Array对象"></a>三.Array对象</h3><p> Arry对象是指可以存储多个相同或不同类型的值的对象，其中存储的每个值称为数组元素。</p>
+<p>创建Array对象<br>方式一 ：var 数组对象名 &#x3D; [元素1，元素2，………];</p>
+<p>方式二：var 数组对象名&#x3D;new Array(元素1，元素2，……);</p>
+<p>注意 var arr &#x3D; [3];&#x2F;&#x2F;创建了只有一个元素的数组，这个元素为3                                                                  var arr &#x3D;new Array(3);&#x2F;&#x2F;创建了一个有3个元素的数组 这三个元素都为undefined                              var arr &#x3D;new Array(2,3);&#x2F;&#x2F;创建了有两个元素的数组，这两个元素分别为2和3</p>
+<p>数组对象常用的属性<br> length ：获取数组的长度（就是数组中元素的个数）</p>
+<p>数组对象常用的方法<br> push() 向数组的末尾添加一个或多个元素，返回的时新数组（添加新元素之后的数组）的长度。reverse（）颠倒数组中元素的顺序。</p>
+<p>检测是否为数组：数组对象名 instanceof Array 返回的值是true或者false                                          H5新增的方法检测数组： Array.isArray(参数)  返回的值是true或者false                                          查询数组中元素的索引 ：  indexOf( 数组元素)   如果数组中没有这个元素 则返回-1                      更 多方法请查阅MDN Web Docs</p>
+<p>案例 数组的去重（重点） </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">			function removal(arr) &#123; //封装这个函数 便于以后进行调用</span><br><span class="line">				var arr1 = [];</span><br><span class="line">				for (i = 0; i &lt; arr.length; i++)&#123;</span><br><span class="line">					if (arr1.indexOf(arr[i]) == -1) &#123;//检测arr1数组中有没有arr[i]这个元素，没有的话则返回-1 （数组去重的关键点）</span><br><span class="line">						arr1.push(arr[i]);//然后运用push()方法将arr[i]存入arr1数组中</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">				return arr1;</span><br><span class="line">			&#125;</span><br><span class="line">			var demo = removal([1,2,3,6,4,3,7,6]);</span><br><span class="line">			console.log(demo);</span><br><span class="line">			console.log(demo instanceof Array);//返回true</span><br><span class="line">			console.log(Array.isArray(demo));//返回true</span><br><span class="line">		&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="四-String对象"><a href="#四-String对象" class="headerlink" title="四.String对象"></a>四.String对象</h3><p>String对象包装对象，用来存储和处理文本。</p>
+<p>String对象的创建 var String 对象名 &#x3D; new String( 字符串)</p>
+<p>字符串对象常用的属性 length 返回的是字符串的长度（字符数）。</p>
+<p>字符串对象常用的方法 charAt(位置) 返回String对象指定位置处的字符                                                                                                                                                  indexOf( 查找的字串，[index])  index是开始的位置  返回的是-1 是没有这个值     更多方法请查阅MDN Web Docs</p>
+<p> 案例一 查找字符串 “abcdabcdaabdadhhdhauo”中a出现的位置及次数</p>
+<pre><code>var str = &quot;abcdabcdaabdadhhdhauo&quot;;
+        var index = str.indexOf(&#39;a&#39;);//找出出现第一个a的位置
+        var num = 0;
+        while (index !== -1) &#123;
+            console.log(index);
+            num++;
+            index = str.indexOf(&#39;a&#39;,index+1);//因为indexOf之查找第一个a，所以需要当前的索引加1继续查找
+        &#125;
+        console.log(&#39;a出现的次数是&#39;+num);
+</code></pre>
+<p> 小作业</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">			// 给定一个字符串，如：&quot;abaasdffggghhjilckofddss$ss3444343&quot;问题如下：</span><br><span class="line">			// 1、字符串的长度</span><br><span class="line">			var str = &quot;abaasdffggghhjilckofddss$ss3444343&quot;;</span><br><span class="line">			console.log(str.length);</span><br><span class="line">			// 2、取出指定位置的字符，如：0,3,5等</span><br><span class="line">			console.log(str.charAt(0));</span><br><span class="line">			console.log(str.charAt(3));</span><br><span class="line">			console.log(str.charAt(5));</span><br><span class="line">			// 3、查找指定字符是否在以上字符串中存在，如：i，c，等</span><br><span class="line">			console.log(str.indexOf(&#x27;i&#x27;)) //如果返回了-1则表示i这个字符不存在于str中。</span><br><span class="line">			// 4 替换指定的字符，如：g替换为22,ss昔换为b等操作方法</span><br><span class="line">			while (str.indexOf(&#x27;g&#x27;) !== -1) &#123;</span><br><span class="line">			str = str.replace(&#x27;g&#x27;,&#x27;22&#x27;);</span><br><span class="line">			&#125;</span><br><span class="line">			console.log(str); //返回abaasdff222222hhjilckofddss$ss3444343</span><br><span class="line">			// 5、截取指定开始位置到结束位置的字符串，如：取得1-5的字符串</span><br><span class="line">			console.log(str.slice(1,5));</span><br><span class="line">			// 6、找出以上字符串中出现次数最多的字符和出现的次数</span><br><span class="line">			// 思路：我们先遍历这个字符串对象，然后创建一个新的空字符对象，</span><br><span class="line">			// 字符串对象出现的第一个字符我们令其等于1存入新的空字符对象作为其属性，</span><br><span class="line">			// 出现相同的便加一</span><br><span class="line">			var str1 = &#123;&#125;;</span><br><span class="line">			for (var i = 0; i &lt; str.length; i++) &#123;</span><br><span class="line">			var chars = str.charAt(i); //返回的是字符</span><br><span class="line">			if (str1[chars]) &#123;</span><br><span class="line">				str1[chars]++;</span><br><span class="line">			&#125;else &#123;</span><br><span class="line">				str1[chars] = 1;</span><br><span class="line">			&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			console.log(str1);</span><br><span class="line">			var max = 0;</span><br><span class="line">			var maxName = &#x27;&#x27;;</span><br><span class="line">			for (var k in str1 ) &#123;</span><br><span class="line">				if(str1[k] &gt; max) &#123;</span><br><span class="line">					max = str1[k];</span><br><span class="line">					maxName = k;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			console.log(&#x27;出现次数最多的是&#x27;+ maxName+&#x27;出现了&#x27;+max+&#x27;次&#x27;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/13/js%E4%B8%AD%E7%9A%84%E7%BF%BB%E8%BD%AC%E6%95%B0%E7%BB%84%E5%92%8C%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -530,7 +627,7 @@ function arr() &#123;
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

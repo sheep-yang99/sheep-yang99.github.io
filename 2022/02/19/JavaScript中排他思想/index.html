@@ -20,20 +20,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="在不知道有多少参数的情况下，这个时候就可以用arguments来获取，JS中arguments是当前函数的内置对象。函数中的一个arguements对象，而arguements对象中存储了传送过来的所有实参。 案例： &lt;script&gt; function arr() &amp;#123;  console.log(arguments);&#x2F;&#x2F;arguments中存储了传送过来的arr(1,2,3,">
+  <meta name="description" content="如果有同一组元素，我们想要一个元素实现某种样式，需要用到循环的排他思想算法。步骤如下： 1.所有元素全部清除样式。 2.给当前元素设置样式。 3.顺序不能颠倒，首先清除所有样式，然后在设置自己。 案例 ：设置一排按键，当我们点击，按键出现颜色变化，点击另外一个按键也出现颜色变化，而之前出现颜色变化的按键，恢复原样。     &lt;div&gt;         &lt;button type&#x3D;&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript中arguments的使用">
-<meta property="og:url" content="http://example.com/2022/02/10/JS%E4%B8%ADarguments%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:title" content="JavaScript中排他思想">
+<meta property="og:url" content="http://example.com/2022/02/19/JavaScript%E4%B8%AD%E6%8E%92%E4%BB%96%E6%80%9D%E6%83%B3/index.html">
 <meta property="og:site_name" content="小肥杨">
-<meta property="og:description" content="在不知道有多少参数的情况下，这个时候就可以用arguments来获取，JS中arguments是当前函数的内置对象。函数中的一个arguements对象，而arguements对象中存储了传送过来的所有实参。 案例： &lt;script&gt; function arr() &amp;#123;  console.log(arguments);&#x2F;&#x2F;arguments中存储了传送过来的arr(1,2,3,">
+<meta property="og:description" content="如果有同一组元素，我们想要一个元素实现某种样式，需要用到循环的排他思想算法。步骤如下： 1.所有元素全部清除样式。 2.给当前元素设置样式。 3.顺序不能颠倒，首先清除所有样式，然后在设置自己。 案例 ：设置一排按键，当我们点击，按键出现颜色变化，点击另外一个按键也出现颜色变化，而之前出现颜色变化的按键，恢复原样。     &lt;div&gt;         &lt;button type&#x3D;&amp;">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-02-10T12:56:09.000Z">
-<meta property="article:modified_time" content="2022-02-13T15:30:33.778Z">
+<meta property="article:published_time" content="2022-02-18T16:03:05.000Z">
+<meta property="article:modified_time" content="2022-02-18T16:03:54.751Z">
 <meta property="article:author" content="yang">
-<meta property="article:tag" content="js知识总结">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2022/02/10/JS%E4%B8%ADarguments%E7%9A%84%E4%BD%BF%E7%94%A8/">
+<link rel="canonical" href="http://example.com/2022/02/19/JavaScript%E4%B8%AD%E6%8E%92%E4%BB%96%E6%80%9D%E6%83%B3/">
 
 
 <script id="page-configurations">
@@ -46,7 +45,7 @@
   };
 </script>
 
-  <title>JavaScript中arguments的使用 | 小肥杨</title>
+  <title>JavaScript中排他思想 | 小肥杨</title>
   
 
 
@@ -151,7 +150,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/10/JS%E4%B8%ADarguments%E7%9A%84%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/19/JavaScript%E4%B8%AD%E6%8E%92%E4%BB%96%E6%80%9D%E6%83%B3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -164,7 +163,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          JavaScript中arguments的使用
+          JavaScript中排他思想
         </h1>
 
         <div class="post-meta">
@@ -173,16 +172,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2022-02-10 20:56:09" itemprop="dateCreated datePublished" datetime="2022-02-10T20:56:09+08:00">2022-02-10</time>
+              <time title="Created: 2022-02-19 00:03:05 / Modified: 00:03:54" itemprop="dateCreated datePublished" datetime="2022-02-19T00:03:05+08:00">2022-02-19</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-02-13 23:30:33" itemprop="dateModified" datetime="2022-02-13T23:30:33+08:00">2022-02-13</time>
-              </span>
 
           
 
@@ -195,39 +188,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>在不知道有多少参数的情况下，这个时候就可以用arguments来获取，JS中arguments是当前函数的内置对象。函数中的一个arguements对象，而arguements对象中存储了传送过来的所有实参。</p>
-<p>案例：</p>
-<pre><code>&lt;script&gt;
-function arr() &#123;
- console.log(arguments);//arguments中存储了传送过来的arr(1,2,3,4)所有实参
- &#125;
- arr(1,2,3,4);
-&lt;/script&gt;
+        <p>如果有同一组元素，我们想要一个元素实现某种样式，需要用到循环的排他思想算法。步骤如下：</p>
+<p>1.所有元素全部清除样式。</p>
+<p>2.给当前元素设置样式。</p>
+<p>3.顺序不能颠倒，首先清除所有样式，然后在设置自己。</p>
+<p>案例 ：设置一排按键，当我们点击，按键出现颜色变化，点击另外一个按键也出现颜色变化，而之前出现颜色变化的按键，恢复原样。</p>
+<pre><code>    &lt;div&gt;
+        &lt;button type=&quot;button&quot;&gt;按键1&lt;/button&gt;
+        &lt;button type=&quot;button&quot;&gt;按键2&lt;/button&gt;
+        &lt;button type=&quot;button&quot;&gt;按键3&lt;/button&gt;
+        &lt;button type=&quot;button&quot;&gt;按键4&lt;/button&gt;
+        &lt;button type=&quot;button&quot;&gt;按键5&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        var btns = document.getElementsByTagName(&#39;button&#39;);
+        for (i=0; i&lt;btns.length; i++) &#123;
+            btns[i].onclick = function () &#123;
+                for (i=0; i&lt;btns.length; i++) &#123;//首先清空所有元素的样式
+                    btns[i].style.backgroundColor = &#39;&#39;;
+                &#125;
+                this.style.backgroundColor = &#39;orange&#39;;//当点击时，设置自己想要的样式
+            &#125;
+        &#125;
+    &lt;/script&gt;
 </code></pre>
-<p>在存储的过程中arguments变成了一个数组。具有[ ]。通过上面的截图可以看出它具有数组的length 和索引。（以下可以通过代码验证）其实arguments所展示的是一个伪数组，可以进行遍历。所以我们要注意是伪数组不具有数组的pop,push等方法。</p>
-<pre><code> &lt;script&gt;
- function arr() &#123;
- console.log(arguments);
- console.log(arguments.length);//4
- console.log(arguments[2]);//3
- &#125;
- arr(1,2,3,4)
- &lt;/script&gt;
-</code></pre>
-<p>arguments对象遍历：</p>
-<pre><code>&lt;script&gt;
-function arr() &#123;
- //console.log(arguments);
- //console.log(arguments.length);
- //console.log(arguments[2]);
- for (i = 0; i &lt; arguments.length; i++) &#123;
-  console.log(arguments[i]);//1，2，3，4
- &#125;
- &#125;
- arr(1,2,3,4);
- &lt;script&gt;
-</code></pre>
-<p> 总结：运用了arguments 不管arr()中存储了多少个值都会接受过去。就可以不用arr()中的形参。需要注意的是只有函数才有arguments对象，就是声明了函数，都会有，相当于内置功能。<br>————————————————</p>
+<p>总结：首先排除其他元素，然后留下自己想要元素并设置样式。这种排除其他的思想，我们称为排他思想。</p>
 
     </div>
 
@@ -236,20 +221,17 @@ function arr() &#123;
     
 
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/js%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" rel="tag"># js知识总结</a>
-          </div>
 
         
 
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2022/02/11/Javascript%E4%BD%9C%E7%94%A8%E5%9F%9F/" rel="next" title="JavaScript作用域">
-      JavaScript作用域 <i class="fa fa-chevron-right"></i>
+    <a href="/2022/02/14/JavaScript%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/" rel="prev" title="JavaScript内置对象">
+      <i class="fa fa-chevron-left"></i> JavaScript内置对象
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     

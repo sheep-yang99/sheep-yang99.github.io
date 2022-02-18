@@ -145,6 +145,89 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/19/JavaScript%E4%B8%AD%E6%8E%92%E4%BB%96%E6%80%9D%E6%83%B3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小肥杨">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/02/19/JavaScript%E4%B8%AD%E6%8E%92%E4%BB%96%E6%80%9D%E6%83%B3/" class="post-title-link" itemprop="url">JavaScript中排他思想</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-02-19 00:03:05 / Modified: 00:03:54" itemprop="dateCreated datePublished" datetime="2022-02-19T00:03:05+08:00">2022-02-19</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>如果有同一组元素，我们想要一个元素实现某种样式，需要用到循环的排他思想算法。步骤如下：</p>
+<p>1.所有元素全部清除样式。</p>
+<p>2.给当前元素设置样式。</p>
+<p>3.顺序不能颠倒，首先清除所有样式，然后在设置自己。</p>
+<p>案例 ：设置一排按键，当我们点击，按键出现颜色变化，点击另外一个按键也出现颜色变化，而之前出现颜色变化的按键，恢复原样。</p>
+<pre><code>    &lt;div&gt;
+        &lt;button type=&quot;button&quot;&gt;按键1&lt;/button&gt;
+        &lt;button type=&quot;button&quot;&gt;按键2&lt;/button&gt;
+        &lt;button type=&quot;button&quot;&gt;按键3&lt;/button&gt;
+        &lt;button type=&quot;button&quot;&gt;按键4&lt;/button&gt;
+        &lt;button type=&quot;button&quot;&gt;按键5&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        var btns = document.getElementsByTagName(&#39;button&#39;);
+        for (i=0; i&lt;btns.length; i++) &#123;
+            btns[i].onclick = function () &#123;
+                for (i=0; i&lt;btns.length; i++) &#123;//首先清空所有元素的样式
+                    btns[i].style.backgroundColor = &#39;&#39;;
+                &#125;
+                this.style.backgroundColor = &#39;orange&#39;;//当点击时，设置自己想要的样式
+            &#125;
+        &#125;
+    &lt;/script&gt;
+</code></pre>
+<p>总结：首先排除其他元素，然后留下自己想要元素并设置样式。这种排除其他的思想，我们称为排他思想。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/14/JavaScript%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -627,7 +710,7 @@ function arr() &#123;
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
